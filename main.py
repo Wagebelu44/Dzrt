@@ -1,5 +1,5 @@
 # Check if Prisma.fi has Playstation 5 is in stock and send an email if this is so
-import telegram
+
 import time
 import urllib.request
 from bs4 import BeautifulSoup
@@ -7,7 +7,7 @@ import requests
 import asyncio
 
 log = ""
-TOKEN = "7137854022:AAHDvqVRCP6KsTtYgslvaCjpBOEYOELB1PY"
+TOKEN = "6171102360:AAGEzJfG8GMsMz1h4ezgIxa9QfkQYf8dI-s"
 bot = telegram.Bot(TOKEN)
 class AppURLopener(urllib.request.FancyURLopener):
     version = "Mozilla/5.0"
@@ -29,10 +29,8 @@ def check_availability():
 async def success():
     await bot.send_message(chat_id=-1002141381439, text='توفر دزرتتتت !!!')
 def main():
-    global log
-    check_availability()
-
-
+      while True:
+        check_availability()
+        time.sleep(60)  # Check every 1 minutes
 
 if __name__ == '__main__':
-    check_availability()
